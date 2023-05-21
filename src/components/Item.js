@@ -2,9 +2,10 @@ import React, { useState } from "react";
 
 function Item({ name, category }) {
   const [cartStatus, setCartStatus] = useState(false);
- 
+
   const itemClass = cartStatus ? "in-cart" : "";
-  const status = cartStatus ?    "Remove From Cart" : "Add to Cart"
+  const status = cartStatus ? "Remove From Cart" : "Add to Cart";
+  const buttonClass = cartStatus ? "remove" : "add";
   const clickHandle = () => {
     setCartStatus(!cartStatus);
   };
@@ -12,7 +13,7 @@ function Item({ name, category }) {
     <li className={itemClass}>
       <span>{name}</span>
       <span className="category">{category}</span>
-      <button className="add" onClick={clickHandle}>
+      <button className={buttonClass} onClick={clickHandle}>
         {status}
       </button>
     </li>
